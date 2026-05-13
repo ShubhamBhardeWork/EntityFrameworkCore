@@ -27,7 +27,7 @@
 1. Faster development
 1. Less boilerplate SQL
 1. Strongly typed (compile time safety)
-1. works perdectly with ASP.NET Core.
+1. Works perfectly with ASP.NET Core.
 1. Supports SQL Server, PostgreSQL, MySQL, SQLite.
 
 
@@ -40,6 +40,15 @@
     1. Microsoft.EntityFrameworkCore.SqlServer ✅
     1. Microsoft.EntityFrameworkCore.InMemory(optional) 
     1. Microsoft.EntityFrameworkCore.Design
+
+1. Configure Connection String in appsettings.json file:-
+    ```cs
+    {
+    "ConnectionStrings": {
+        "DefaultConnectionString": "Server=<server>; Database=<dbName>; Trusted_Connection=True; TrustServerCertificate=True"
+    }
+    }
+    ```
 
 1. Make Data Folder & in that folder create AppDbContext.cs file:-
 
@@ -69,4 +78,3 @@
     builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString) );
     // builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("EmployeesDb") );
     ```
-    
