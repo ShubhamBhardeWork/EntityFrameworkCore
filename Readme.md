@@ -89,3 +89,45 @@
         _context = context;
     }
     ```
+
+## CRUD Operations using EF Core:-
+### CREATE
+```cs
+await _context.Employees.AddAsync(employee);
+await _context.SaveChangesAsync();
+```
+
+### READ (get all)
+```cs
+await _context.Employees.AsNoTracking().ToListAsync();
+```
+
+### READ (get by id)
+```cs
+await _context.Employees.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
+```
+
+### UPDATE 
+```cs
+var existingEmployee = await _context.Employees.FirstOrDefaultAsync(e => e.Id == id);
+
+if (existingEmployee is null)
+    return null;
+
+existingEmployee.Name = "Updated Name";
+
+await _context.SaveChangesAsync();
+```
+
+### DELETE
+```cs
+var existingEmployee = await _context.Employees
+    .FirstOrDefaultAsync(x => x.Id == id);
+
+if(existingEmployee is null)
+    return null;
+
+_context.Employees.Remove(existingEmployee);
+
+await _context.SaveChangesAsync();
+```
