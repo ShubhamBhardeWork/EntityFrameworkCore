@@ -78,3 +78,14 @@
     builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString) );
     // builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("EmployeesDb") );
     ```
+
+
+1. Injecting object into class/Repository using Constructor Injection:-
+    ```cs
+    private readonly AppDbContext _context;
+
+    Constructor(AppDbContext context)
+    {
+        _context = context;
+    }
+    ```
