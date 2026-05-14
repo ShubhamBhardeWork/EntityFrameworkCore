@@ -30,7 +30,16 @@
 1. Works perfectly with ASP.NET Core.
 1. Supports SQL Server, PostgreSQL, MySQL, SQLite.
 
+## Main Components of EF Core:-
+1. DbContext
+1. DbSet
+1. ModelBuilder & OnModelCreating() method (Fluent API)
+1. Change Tracker
+1. LINQ Provider
+1. Migrations
+1. Database Provider
 
+- Additionally, EF Core works with Entity / Domain Models and Data Annotations, but they are not part of EF Core itself. They are commonly used for mapping, validation, and database schema configuration.
 
 ## Hands-on Entity Framework Core:-
 
