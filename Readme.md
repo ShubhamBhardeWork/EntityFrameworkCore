@@ -140,3 +140,28 @@ _context.Employees.Remove(existingEmployee);
 
 await _context.SaveChangesAsync();
 ```
+
+### Data Seeding through Entity Framework Core? 
+#### Data Seeding:- 
+It is the process of inserting initial/default data into the database automatically during migrations or database creation.
+
+```cs
+
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    base.OnModelCreating(modelBuilder); // call base method
+
+    var employees = new List<Employee>
+    {
+        new Employee { Id = 1, Name = "Shubham", Email = "shubham@gmail.com"},
+        new Employee { Id = 2, Name = "Rohit", Email = "rohit@gmail.com"},
+        new Employee { Id = 3, Name = "Pranav", Email = "pranav@gmail.com"}
+    };
+
+    // data seeding
+    modelBuilder.Entity<Employee>().HasData(employees);
+
+    // databbase indexing on column
+    modelBuilder.Entity<Employee>().HasIndex(e => e.Name);
+}
+```
